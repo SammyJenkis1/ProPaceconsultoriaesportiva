@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessoria de Ciclismo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="Logo1.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Poppins;background:#050816;color:#fff}
+
+nav{
+position:fixed;
+width:100%;
+padding:25px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:transparent;
+z-index:1000;
+}
+nav img{height:100px}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{color:#fff;text-decoration:none;font-size:14px;opacity:.8;cursor:pointer}
+
+.hero{
+height:100vh;
+width:100%;
+background:url('https://www.pedal.com.br/fotos/noticias/11922001-w1920.jpg') center/cover no-repeat;
+display:flex;
+align-items:center;
+padding:0 8%;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.2));
+z-index:1;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+}
+.hero h1{font-size:80px;font-weight:800}
+.hero p{margin-top:20px;font-size:20px}
+.btn{display:inline-block;margin-top:30px;padding:16px 32px;border-radius:50px;background:linear-gradient(135deg,hsl(25, 97%, 54%),#e74900);color:#fff;text-decoration:none;font-weight:600;cursor:pointer}
+
+.section{width:100%;padding:120px 8%}
+.title{font-size:44px;margin-bottom:10px}
+.subtitle{color:#64748b;margin-bottom:50px}
+
+.beneficios{
+background:#ffffff;
+color:#0f172a;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+padding:50px 40px;
+border-radius:20px;
+background:#ffffff;
+border-left:4px solid #e5e7eb;
+transition:.3s;
+position:relative;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:15px;
+font-weight:700;
+}
+
+.card p{
+color:#64748b;
+line-height:1.6;
+font-size:15px;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-left:4px solid #bea803;
+box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.card.destaque{
+background:#df700f;
+color:#fff;
+border:none;
+}
+
+.card.destaque p{
+color:#e0e7ff;
+}
+
+/* TRAINING */
+.training-section{background:linear-gradient(135deg,#2563eb,#1e3a8a)}
+.training{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.training video{width:100%;border-radius:20px}
+
+.about-full{
+height:100vh;
+width:100%;
+background:url('sobre1.jpg') center/cover no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+}
+
+.about-overlay{
+width:100%;
+height:100%;
+background:linear-gradient(to right, rgba(0,0,0,.8), rgba(0,0,0,.2));
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+
+.about-content{
+max-width:600px;
+color:#fff;
+}
+
+.about-content h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.about-content p{
+font-size:18px;
+color:#e2e8f0;
+line-height:1.6;
+}
+
+/* PLANOS */
+.planos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.plano{
+padding:50px 40px;
+border-radius:30px;
+background:#0f172a;
+border:1px solid #1e293b;
+transition:.3s;
+}
+.plano:hover{transform:translateY(-10px)}
+.plano.destaque{
+background:linear-gradient(135deg,#c23d18,#dc240c);
+}
+.plano button{
+margin-top:20px;width:100%;padding:14px;border:none;border-radius:25px;background:#fff;color:#0f172a;font-weight:700;cursor:pointer
+}
+
+/* CTA */
+.cta{width:100%;background:#020617;padding:120px 8%;text-align:center}
+.cta h2{font-size:50px;margin-bottom:15px}
+.cta p{color:#94a3b8;margin-bottom:40px}
+.cta-buttons{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.cta a{padding:16px 32px;border-radius:40px;text-decoration:none;font-weight:600;cursor:pointer}
+.btn-primary{background:#d43a0b;color:#fff}
+.btn-secondary{border:1px solid #fff;color:#fff}
+
+footer{padding:40px;text-align:center;color:#94a3b8;background:#020617}
+</style>
+</head>
+
+<body>
+
+<nav>
+<img src="Logo1.png">
+<ul>
+<li><a onclick="scrollToSection('hero')">Início</a></li>
+<li><a onclick="scrollToSection('vantagens')">Vantagens</a></li>
+<li><a onclick="scrollToSection('sobre')">Sobre</a></li>
+<li><a onclick="scrollToSection('planos')">Planos</a></li>
+<li><a onclick="scrollToSection('contato')">Contato</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="hero">
+<div class="hero-content">
+<h1>Alta performance no ciclismo</h1>
+<p>Treinos personalizados, estratégia e evolução real.</p>
+<a class="btn" onclick="scrollToSection('planos')">Começar agora</a>
+</div>
+</section>
+
+<section class="section beneficios" id="vantagens">
+<h2 class="title">Por que escolher nossa assessoria?</h2>
+<p class="subtitle">Resultados não vêm por acaso.</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>Treino Individualizado</h3>
+<p>Cada atleta recebe um planejamento único, baseado no seu nível, rotina e objetivos.</p>
+</div>
+
+<div class="card">
+<h3>Acompanhamento Real</h3>
+<p>Analisamos seus treinos constantemente para garantir evolução contínua.</p>
+</div>
+
+<div class="card">
+<h3>Performance de Verdade</h3>
+<p>Foco em resultado, não apenas volume. Treine com estratégia.</p>
+</div>
+
+<div class="card destaque">
+<h3>Evolução Constante</h3>
+<p>Você sente na prática a diferença semana após semana.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section training-section">
+<div class="training">
+<div>
+<h2 class="title">TrainingPeaks</h2>
+<p>Controle total do seu desempenho com análise profissional.</p>
+</div>
+<video controls src="video1.mp4"></video>
+</div>
+</section>
+
+<section class="about-full" id="sobre">
+<div class="about-overlay">
+<div class="about-content">
+<h2>Quem somos</h2>
+<p>
+Somos uma assessoria especializada em alta performance no ciclismo. 
+Nosso foco é transformar atletas comuns em ciclistas competitivos, 
+com treinos personalizados, estratégia e acompanhamento real.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="planos">
+<h2 class="title">Planos</h2>
+<div class="planos">
+<div class="plano">
+<h3>Plano Start</h3>
+<p>R$ 200,00/mês</p>
+<button onclick="comprar('Plano Start')">Assinar</button>
+</div>
+
+<div class="plano destaque">
+<h3>Plano Performance</h3>
+<p>R$ 250,00/mês</p>
+<button onclick="comprar('Plano Performance')">Assinar</button>
+</div>
+
+<div class="plano">
+<h3>Plano Pódio</h3>
+<p>R$ 300,00/mês</p>
+<button onclick="comprar('Plano Pódio')">Assinar</button>
+</div>
+</div>
+</section>
+
+<section class="cta" id="contato">
+<h2>Pronto para evoluir?</h2>
+<p>Fale conosco e comece sua evolução hoje mesmo.</p>
+<div class="cta-buttons">
+<a class="btn-primary" onclick="irWhats()">WhatsApp</a>
+<a class="btn-secondary" onclick="scrollToSection('planos')">Ver planos</a>
+</div>
+</section>
+
+<footer>© Pro Pace - Assessoria esportiva</footer>
+
+<script>
+const numero = "554699220887";
+
+function irWhats(){
+let msg = "Olá, quero começar na assessoria de ciclismo!";
+window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+}
+
+function comprar(plano){
+let msg = `Olá, tenho interesse no ${plano}`;
+window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+}
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
